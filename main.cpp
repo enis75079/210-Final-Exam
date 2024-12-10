@@ -106,6 +106,8 @@ void vectorVendor(vector<Customer>& queue, const string& vendor, vector<string>&
     }
 }
 
+void mapVendor(map<string, string>& queue, const string& vendor)
+
 // main function
 int main() {
 
@@ -122,12 +124,15 @@ int main() {
 
     vector<Customer> bracelets;
 
+    map<string, string> switches;
+
 
 
     for (int i = 0; i < 3; i++) {
         addCustomer(customerNames[rand() % 18], coffeeNames[rand() % 10], head, tail);
         muffins.push_back({customerNames[rand() % 18], muffinNames[rand() % 10]});
         bracelets.push_back({customerNames[rand() % 18], muffinNames[rand() % 10]});
+        switches[customerNames[rand() % 18]] = coffeeNames[rand() % 10];
     }
 
     for (int i = 0; i <= 9; i++) {
