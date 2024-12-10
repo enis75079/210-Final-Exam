@@ -57,17 +57,16 @@ void queueOutput(Node* head) {
     }
 }
 
-void dequeVendor(deque<string> queue, const string& vendor) {
+void dequeVendor(deque<string> queue, const string& vendor, vector<string>& names, vector<string>& muffins) {
     if (!queue.empty()) {
         cout << "Serving: " << queue.front() << endl;
         queue.pop_front();
     } else {
         cout << "No customers (muffins)" << endl;
     }
-
     if (rand() % 2 == 0) {
-        string customerLine = 
-    }
+            
+        }
 
 }
 
@@ -76,6 +75,7 @@ int main() {
 
     vector<string> customerNames = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
     vector<string> coffeeNames = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
+    vector<string> muffinNames = {"Chocolate Chip Muffin", "Egg Muffin", "Strawberry Muffin", "Pumpkin Spice Muffin", "Banana Nut Muffin", "Rebel Muffin", "Keto Blueberry Muffin", "Apple Cinnamon Muffin", "Keto Double Chocolate Muffin", "2x2 Muffin"};
     
     Node* head = nullptr;
     Node* tail = nullptr;
