@@ -60,6 +60,9 @@ void queueOutput(Node* head) {
 // main function
 int main() {
 
+    int randName = rand() % 18;
+    int randDrink = rand() % 10;
+
     vector<string> customerNames = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
     vector<string> coffeeNames = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
     
@@ -67,7 +70,7 @@ int main() {
     Node* tail = nullptr;
 
     for (int i = 0; i < 3; i++) {
-        addCustomer(customerNames[i], coffeeNames[i], head, tail);
+        addCustomer(customerNames[randName], coffeeNames[randDrink], head, tail);
     }
 
     for (int i = 0; i <= 9; i++) {
@@ -79,8 +82,8 @@ int main() {
             cout << "No customers." << endl;
         }
 
-        if (rand() % 1 == 0) {
-            addCustomer(customerNames[i], coffeeNames[i], head, tail);
+        if (rand() % 2 == 0) {
+            addCustomer(customerNames[randName], coffeeNames[randDrink], head, tail);
         }
 
         queueOutput(head);
