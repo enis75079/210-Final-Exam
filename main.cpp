@@ -27,6 +27,7 @@ struct Customer {
     string cusOrder;
 };
 
+// addCustomer function. adds a customer to the coffee queue
 void addCustomer(const string& name, const string& coffee, Node*& head, Node*& tail) {
     Node* newNode = new Node{name, coffee, nullptr};
     if (head == nullptr) {
@@ -38,6 +39,7 @@ void addCustomer(const string& name, const string& coffee, Node*& head, Node*& t
     }
 }
 
+// serveCustomer function. removes the customer at the front of the coffee queue to serve next in linked list
 void serveCustomer(Node*& head, Node*& tail) {
     if (head == nullptr) {
         return;
@@ -53,6 +55,7 @@ void serveCustomer(Node*& head, Node*& tail) {
     }
 }
 
+//
 void queueOutput(Node* head) {
     if (head != nullptr) {
         Node* current = head;
@@ -106,7 +109,27 @@ void vectorVendor(vector<Customer>& queue, const string& vendor, vector<string>&
     }
 }
 
-void mapVendor(map<string, string>& queue, const string& vendor)
+void mapVendor(map<string, string>& queue, const string& vendor, vector<string>& names, vector<string>& games) {
+    if (!queue.empty()) {
+        auto it = queue.begin();
+        cout << "Serving: " << it->first << ", Ordered: " << it->second << endl;
+        queue.erase(it);
+    } else {
+        cout << "No customers." << endl;
+    }
+
+    if (rand() % 2 == 0) {
+        string name = names[rand() % 18];
+        string order = games[rand() % 10];
+        queue[name] = order;
+    }
+    if (!queue.empty()) {
+        cout << "Game Booth Queue: " << endl;
+        for (const auto& cus : queue) {
+            cout << cus.first << " wants " << cus.second << endl;
+        }
+    }
+}
 
 // main function
 int main() {
@@ -155,6 +178,8 @@ int main() {
         dequeVendor(muffins, "Muffins Booth", customerNames, muffinNames);
 
         vectorVendor(bracelets, "Bracelets Booth", customerNames, braceletNames);
+
+        mapVendor(switches, "Game Booth", customerNames, switchNames);
     }
 
     return 0;
