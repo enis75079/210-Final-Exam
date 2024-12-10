@@ -9,6 +9,7 @@ Naveen Islam
 #include <iostream>
 #include <string>
 #include <vector>
+#include <deque>
 using namespace std;
 
 // function prototypes
@@ -54,6 +55,16 @@ void queueOutput(Node* head) {
             current = current->next;
         }
     }
+}
+
+void dequeVendor(deque<string> queue, const string& vendor) {
+    if (!queue.empty()) {
+        cout << "Serving: " << queue.front() << endl;
+        queue.pop_front();
+    } else {
+        cout << "No customers (muffins)" << endl;
+    }
+
 }
 
 // main function
