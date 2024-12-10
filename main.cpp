@@ -56,6 +56,7 @@ void serveCustomer(Node*& head, Node*& tail) {
     }
 
     if (head == nullptr) {
+        // if queue is empty, makes the tail null
         tail = nullptr;
     }
 }
@@ -86,6 +87,7 @@ void dequeVendor(deque<Customer>& queue, const string& vendor, vector<string>& n
         queue.push_back({names[rand() % 18], muffins[rand() % 10]});
     }
 
+    // for current queue
     if (!queue.empty()) {
         cout << "Muffin Booth Queue: " << endl;
         for (const auto& cus : queue) {
@@ -108,6 +110,7 @@ void vectorVendor(vector<Customer>& queue, const string& vendor, vector<string>&
         queue.push_back({names[rand() % 18], bracelets[rand() % 10]});
     }
 
+    // for current queue
     if (!queue.empty()) {
         cout << "Bracelet Booth Queue: " << endl;
         for (const auto& cus : queue) {
@@ -124,6 +127,7 @@ void mapVendor(map<string, string>& queue, const string& vendor, vector<string>&
         queue.erase(it);
     } else {
         cout << "No customers." << endl;
+        cout << endl;
     }
 
     if (rand() % 2 == 0) {
@@ -136,6 +140,7 @@ void mapVendor(map<string, string>& queue, const string& vendor, vector<string>&
         for (const auto& cus : queue) {
             cout << cus.first << " wants " << cus.second << endl;
         }
+        cout << endl;
     }
 }
 
