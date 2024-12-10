@@ -31,9 +31,11 @@ struct Customer {
 void addCustomer(const string& name, const string& coffee, Node*& head, Node*& tail) {
     Node* newNode = new Node{name, coffee, nullptr};
     if (head == nullptr) {
+        // if queue is empty, then sets the new node to tail and head
         head = newNode;
         tail = newNode;
     } else {
+        // appends the new node to the tail
         tail->next = newNode;
         tail = newNode;
     }
@@ -42,12 +44,15 @@ void addCustomer(const string& name, const string& coffee, Node*& head, Node*& t
 // serveCustomer function. removes the customer at the front of the coffee queue to serve next in linked list
 void serveCustomer(Node*& head, Node*& tail) {
     if (head == nullptr) {
+        // doesnt serve if queue is empty
         return;
     } else {
         cout << "Serving: " << head->cusName << ", Ordered: " << head->cusOrder << endl;
-    
+
+        // creates temporary pointer to the node that will be removed
         Node* temp = head;
         head = head->next;
+        delete temp;
     }
 
     if (head == nullptr) {
@@ -55,7 +60,7 @@ void serveCustomer(Node*& head, Node*& tail) {
     }
 }
 
-//
+// queueOutput function. outputs the current coffee booth queue
 void queueOutput(Node* head) {
     if (head != nullptr) {
         Node* current = head;
@@ -67,6 +72,7 @@ void queueOutput(Node* head) {
     }
 }
 
+// dequeVendor function. muffin booth queue using deque
 void dequeVendor(deque<Customer>& queue, const string& vendor, vector<string>& names, vector<string>& muffins) {
     if (!queue.empty()) {
         Customer cus = queue.front();
@@ -89,6 +95,7 @@ void dequeVendor(deque<Customer>& queue, const string& vendor, vector<string>& n
 
 }
 
+// vectorVendor function. bracelet booth queue using vectors
 void vectorVendor(vector<Customer>& queue, const string& vendor, vector<string>& names, vector<string>& bracelets) {
     if (!queue.empty()) {
         Customer cus = queue.front();
@@ -109,6 +116,7 @@ void vectorVendor(vector<Customer>& queue, const string& vendor, vector<string>&
     }
 }
 
+// mapVendor function. game booth queue using maps
 void mapVendor(map<string, string>& queue, const string& vendor, vector<string>& names, vector<string>& games) {
     if (!queue.empty()) {
         auto it = queue.begin();
@@ -149,8 +157,7 @@ int main() {
 
     map<string, string> switches;
 
-
-
+    // initializes the queue with 3 customers for each booth
     for (int i = 0; i < 3; i++) {
         addCustomer(customerNames[rand() % 18], coffeeNames[rand() % 10], head, tail);
         muffins.push_back({customerNames[rand() % 18], muffinNames[rand() % 10]});
@@ -158,6 +165,7 @@ int main() {
         switches[customerNames[rand() % 18]] = coffeeNames[rand() % 10];
     }
 
+    // simulation for 10 rounds
     for (int i = 0; i <= 9; i++) {
         cout << endl;
         cout << "Round: " << i + 1 << endl;
@@ -175,10 +183,13 @@ int main() {
 
         queueOutput(head);
 
+        // calling the dequeVendor function to simulate the muffin booth queue
         dequeVendor(muffins, "Muffins Booth", customerNames, muffinNames);
 
+        // calling the vectorVendor function to simulate the bracelet booth queue
         vectorVendor(bracelets, "Bracelets Booth", customerNames, braceletNames);
 
+        // calling the mapVendor function to simulate the game booth queue
         mapVendor(switches, "Game Booth", customerNames, switchNames);
     }
 
