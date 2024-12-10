@@ -21,6 +21,11 @@ struct Node {
     Node* next;
 };
 
+struct Customer {
+    string cusName;
+    string cusOrder;
+};
+
 void addCustomer(const string& name, const string& coffee, Node*& head, Node*& tail) {
     Node* newNode = new Node{name, coffee, nullptr};
     if (head == nullptr) {
@@ -57,16 +62,13 @@ void queueOutput(Node* head) {
     }
 }
 
-void dequeVendor(deque<string> queue, const string& vendor, vector<string>& names, vector<string>& muffins) {
+void dequeVendor(deque<Customer>& queue, const string& vendor, vector<string>& names, vector<string>& muffins) {
     if (!queue.empty()) {
-        cout << "Serving: " << queue.front() << endl;
+        Customer cus = queue.front();
         queue.pop_front();
+        cout << "Serving: " << cus.cusName << ", Ordered: " << cus.cusOrder << endl;
     } else {
-        cout << "No customers (muffins)" << endl;
-    }
-    if (rand() % 2 == 0) {
-        string muffinCustomer = names[rand() % 18] + " wants " + muffins[rand() % 10];
-        queue.push_back(muffinCustomer);
+        cout << "No customers." << endl;
     }
 
 
@@ -82,8 +84,11 @@ int main() {
     Node* head = nullptr;
     Node* tail = nullptr;
 
+    deque<Customer> muffins;
+
     for (int i = 0; i < 3; i++) {
         addCustomer(customerNames[rand() % 18], coffeeNames[rand() % 10], head, tail);
+        muffins.push_back({customerNames[rand() % 18], muffinNames[rand() % 18]});
     }
 
     for (int i = 0; i <= 9; i++) {
@@ -101,7 +106,7 @@ int main() {
 
         queueOutput(head);
 
-        dequeVendor()
+        dequeVendor(muffins, "Muffins Booth", customerNames, muffinNames);
     }
 
     return 0;
