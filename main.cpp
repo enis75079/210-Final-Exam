@@ -34,6 +34,12 @@ void addCustomer(const string& name, const string& coffee, Node*& head) {
     }
 }
 
+void serveCustomer(Node*& head, Node*& tail) {
+    if (head == nullptr) {
+        break;
+    }
+}
+
 void queueOutput(Node* head) {
     if (head != nullptr) {
         Node* current = head;
@@ -47,19 +53,10 @@ void queueOutput(Node* head) {
 // main function
 int main() {
 
-    // for random generation each runtime
-    srand(static_cast<unsigned>(time(nullptr)));
-
-    string customerNames[] = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
-    string coffeeNames[] = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
+    vector<string> customerNames = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
+    vector<string> coffeeNames = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
     
     Node* head = nullptr;
-
-    for (int i = 0; i < 3; i++) {
-        addCustomer(customerNames[i], coffeeNames[i], head);
-    }
-
-    queueOutput(head);
 
     return 0;
 }
