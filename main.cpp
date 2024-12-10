@@ -55,6 +55,7 @@ void serveCustomer(Node*& head, Node*& tail) {
 void queueOutput(Node* head) {
     if (head != nullptr) {
         Node* current = head;
+        cout << "Coffee Booth Queue: " << endl;
         while (current) {
             cout << current->cusName << " wants " << current->cusOrder << endl;
             current = current->next;
@@ -71,6 +72,12 @@ void dequeVendor(deque<Customer>& queue, const string& vendor, vector<string>& n
         cout << "No customers." << endl;
     }
 
+    if (!queue.empty()) {
+        cout << "Muffin Booth Queue: " << endl;
+        for (const auto& cus : queue) {
+            cout << cus.cusName << " wants " << cus.cusOrder << endl;
+        }
+    }
 
 }
 
