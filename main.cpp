@@ -51,7 +51,7 @@ void queueOutput(Node* head) {
     if (head != nullptr) {
         Node* current = head;
         while (current) {
-            cout << current->cusName << " ordered " << current->cusOrder << endl;
+            cout << current->cusName << " wants " << current->cusOrder << endl;
             current = current->next;
         }
     }
@@ -63,6 +63,10 @@ void dequeVendor(deque<string> queue, const string& vendor) {
         queue.pop_front();
     } else {
         cout << "No customers (muffins)" << endl;
+    }
+
+    if (rand() % 2 == 0) {
+        string customerLine = 
     }
 
 }
