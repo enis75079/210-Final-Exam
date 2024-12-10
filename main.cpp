@@ -9,7 +9,6 @@ Naveen Islam
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ctime>
 using namespace std;
 
 // function prototypes
@@ -60,9 +59,6 @@ void queueOutput(Node* head) {
 // main function
 int main() {
 
-    int randName = rand() % 18;
-    int randDrink = rand() % 10;
-
     vector<string> customerNames = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
     vector<string> coffeeNames = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
     
@@ -70,7 +66,7 @@ int main() {
     Node* tail = nullptr;
 
     for (int i = 0; i < 3; i++) {
-        addCustomer(customerNames[randName], coffeeNames[randDrink], head, tail);
+        addCustomer(customerNames[rand() % 18], coffeeNames[rand() % 10], head, tail);
     }
 
     for (int i = 0; i <= 9; i++) {
@@ -83,7 +79,7 @@ int main() {
         }
 
         if (rand() % 2 == 0) {
-            addCustomer(customerNames[randName], coffeeNames[randDrink], head, tail);
+            addCustomer(customerNames[rand() % 18], coffeeNames[rand() % 10], head, tail);
         }
 
         queueOutput(head);
