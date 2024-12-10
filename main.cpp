@@ -12,7 +12,7 @@ Naveen Islam
 using namespace std;
 
 // function prototypes
-void addCustomer(string&, string&, Node&, Node&);
+void addCustomer(string&, string&, Node&);
 
 // struct for node in linked list got coffee booth queue simulation
 struct Node {
@@ -21,8 +21,11 @@ struct Node {
     Node* next;
 };
 
-void addCustomer(string& name, string& coffee, Node& begin, Node& end) {
-
+void addCustomer(string& name, string& coffee, Node& head) {
+    Node* newNode = new Node{name, coffee, nullptr};
+    if (!head) {
+        head = newNode;
+    }
 }
 
 int main() {
