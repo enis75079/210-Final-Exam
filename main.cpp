@@ -9,6 +9,7 @@ Naveen Islam
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
 using namespace std;
 
 // function prototypes
@@ -38,11 +39,17 @@ void queueOutput(Node* head) {
         Node* current = head;
         while (current) {
             cout << current->cusName << " ordered " << current->cusOrder << endl;
+            current = current->next;
         }
     }
 }
 
+// main function
 int main() {
+
+    // for random generation each runtime
+    srand(static_cast<unsigned>(time(nullptr)));
+
     string customerNames[] = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
     string coffeeNames[] = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
     
