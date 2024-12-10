@@ -65,8 +65,10 @@ void dequeVendor(deque<string> queue, const string& vendor, vector<string>& name
         cout << "No customers (muffins)" << endl;
     }
     if (rand() % 2 == 0) {
-            
-        }
+        string muffinCustomer = names[rand() % 18] + " wants " + muffins[rand() % 10];
+        queue.push_back(muffinCustomer);
+    }
+
 
 }
 
@@ -98,6 +100,8 @@ int main() {
         }
 
         queueOutput(head);
+
+        dequeVendor()
     }
 
     return 0;
