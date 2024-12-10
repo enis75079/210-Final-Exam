@@ -21,16 +21,14 @@ struct Node {
     Node* next;
 };
 
-void addCustomer(const string& name, const string& coffee, Node*& head) {
+void addCustomer(const string& name, const string& coffee, Node*& head, Node*& tail) {
     Node* newNode = new Node{name, coffee, nullptr};
-    if (!head) {
+    if (head == nullptr) {
         head = newNode;
+        tail = newNode;
     } else {
-        Node* current = head;
-        while (current->next) {
-            current = current->next;
-        }
-        current->next = newNode;
+        tail->next = newNode;
+        tail = newNode;
     }
 }
 
@@ -69,7 +67,17 @@ int main() {
     Node* tail = nullptr;
 
     for (int i = 0; i < 3; i++) {
-        addCustomer(customerNames[i], coffeeNames[i]);
+        addCustomer(customerNames[i], coffeeNames[i], head);
+    }
+
+    for (int i = 0; i <= 9; i++) {
+        cout << "Round: " << i << endl;
+
+        if (head) {
+            serveCustomer(head, tail);
+        } else {
+            cout << "No customers." << endl;
+        }
     }
 
     return 0;
