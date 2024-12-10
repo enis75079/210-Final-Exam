@@ -67,17 +67,23 @@ int main() {
     Node* tail = nullptr;
 
     for (int i = 0; i < 3; i++) {
-        addCustomer(customerNames[i], coffeeNames[i], head);
+        addCustomer(customerNames[i], coffeeNames[i], head, tail);
     }
 
     for (int i = 0; i <= 9; i++) {
-        cout << "Round: " << i << endl;
+        cout << "Round: " << i + 1 << endl;
 
         if (head) {
             serveCustomer(head, tail);
         } else {
             cout << "No customers." << endl;
         }
+
+        if (rand() % 1 == 0) {
+            addCustomer(customerNames[i], coffeeNames[i], head, tail);
+        }
+
+        queueOutput(head);
     }
 
     return 0;
