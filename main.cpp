@@ -36,7 +36,16 @@ void addCustomer(const string& name, const string& coffee, Node*& head) {
 
 void serveCustomer(Node*& head, Node*& tail) {
     if (head == nullptr) {
-        break;
+        return;
+    } else {
+        cout << "Serving: " << head->cusName << ", Ordered: " << head->cusOrder << endl;
+    
+        Node* temp = head;
+        head = head->next;
+    }
+
+    if (head == nullptr) {
+        tail = nullptr;
     }
 }
 
@@ -57,6 +66,11 @@ int main() {
     vector<string> coffeeNames = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
     
     Node* head = nullptr;
+    Node* tail = nullptr;
+
+    for (int i = 0; i < 3; i++) {
+        addCustomer(customerNames[i], coffeeNames[i]);
+    }
 
     return 0;
 }
