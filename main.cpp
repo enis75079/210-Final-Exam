@@ -12,6 +12,7 @@ Naveen Islam
 using namespace std;
 
 // function prototypes
+void addCustomer(string&, string&, Node&, Node&);
 
 // struct for node in linked list got coffee booth queue simulation
 struct Node {
@@ -20,6 +21,9 @@ struct Node {
     Node* next;
 };
 
+void addCustomer(string& name, string& coffee, Node& begin, Node& end) {
+
+}
 
 int main() {
     string customerNames[] = {"Yoshi", "Link", "Zelda", "Ganondorf", "Impa", "Peach", "Mario", "Luigi", "Bowser", "Pauline", "King Dedede", "Fox", "Ness", "Lucas", "Ash", "Pikachu", "Isabelle", "Captain Toad"};
