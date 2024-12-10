@@ -10,6 +10,7 @@ Naveen Islam
 #include <string>
 #include <vector>
 #include <deque>
+#include <map>
 using namespace std;
 
 // function prototypes
@@ -112,6 +113,7 @@ int main() {
     vector<string> coffeeNames = {"Caramel Macchiato", "Vanilla Latte", "Hazelnut Mocha", "Pumpkin Spice Latte", "Coconut Cappuccino", "Irish Cream Coffee", "Maple Pecan Latte", "Almond Milk Flat White", "Salted Caramel Cold Brew", "White Chocolate Mocha"};
     vector<string> muffinNames = {"Chocolate Chip Muffin", "Egg Muffin", "Strawberry Muffin", "Pumpkin Spice Muffin", "Banana Nut Muffin", "Rebel Muffin", "Keto Blueberry Muffin", "Apple Cinnamon Muffin", "Keto Double Chocolate Muffin", "2x2 Muffin"};
     vector<string> braceletNames = {"Beaded Bracelet", "Woven Bracelet", "Friendship Bracelet", "Charm Bracelet", "Macrame Bracelet", "Custom Name Bracelet", "Infinity Bracelet", "Heart Bracelet", "Gummy Bracelet", "Spike Bracelet"};
+    vector<string> switchNames = {"Super Mario Odyssey", "Mario Kart 8 Deluxe", "The Legend of Zelda - Breath of the Wild", "Super Smash Bros. Ultimate", "Animal Crossing - New Horizons", "Splatoon 3", "Luigi's Mansion 3", "Kirby and the Forgotten Land", "Xenoblade Chronicles 3", "Switch Sports"};
 
     Node* head = nullptr;
     Node* tail = nullptr;
@@ -119,6 +121,8 @@ int main() {
     deque<Customer> muffins;
 
     vector<Customer> bracelets;
+
+
 
     for (int i = 0; i < 3; i++) {
         addCustomer(customerNames[rand() % 18], coffeeNames[rand() % 10], head, tail);
